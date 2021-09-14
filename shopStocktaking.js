@@ -27,7 +27,7 @@ const shopStocktaking = (goodsArray) => {
     const sortByCost = (a, b) => {
       const lastItemA = Object.keys(a)[Object.keys(a).length - 1];
       const lastItemB = Object.keys(b)[Object.keys(b).length - 1];
-      return parseFloat(a[lastItemA].slice(1)) > parseFloat(b[lastItemB].slice(1)) ? 1 : -1;
+      return parseFloat(a[lastItemA].replace(/,/gi, '.').slice(1)) > parseFloat(b[lastItemB].replace(/,/gi, '.').slice(1)) ? 1 : -1;
     }
     const sortCostArray = goodsArray.sort(sortByCost);
     console.log(sortCostArray);
