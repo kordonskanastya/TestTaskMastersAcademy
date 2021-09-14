@@ -33,14 +33,14 @@ const shopStocktaking = (goodsArray) => {
     console.log(sortCostArray);
     //Print the type of oranges with the least price
     const arrayOranges = goodsArray.filter(Fruit => Fruit.item === "orange");
-    const cheapestOrange = arrayOranges.sort((a, b) => parseFloat(a['pricePerKilo'].replace(/,/gi, '.').slice(1)) > parseFloat(b.pricePerKilo.slice(1)) ? 1 : -1);
+    const cheapestOrange = arrayOranges.sort((a, b) => parseFloat(a.pricePerKilo.replace(/,/gi, '.').slice(1)) > parseFloat(b.pricePerKilo.slice(1)) ? 1 : -1);
     console.log(cheapestOrange[0]);
     //Print the cost of the goods by item name 
-    const costWatermelons = arrayWatMelons.reduce((acc, currentValue) => acc + currentValue.pricePerItem.slice(1) * currentValue.quantity, 0);
-    const costApples = arrayApples.reduce((acc, currentValue) => acc + currentValue.pricePerKilo.slice(1) * currentValue.weight, 0);
-    const costOranges = arrayOranges.reduce((acc, currentValue) => acc + parseFloat(currentValue['pricePerKilo'].replace(/,/gi, '.').slice(1)) * currentValue.weight, 0);
+    const costWatermelons = arrayWatMelons.reduce((acc, currentValue) => acc + parseFloat(currentValue.pricePerItem.replace(/,/gi, '.').slice(1)) * currentValue.quantity, 0);
+    const costApples = arrayApples.reduce((acc, currentValue) => acc + parseFloat(currentValue.pricePerKilo.replace(/,/gi, '.').slice(1)) * currentValue.weight, 0);
+    const costOranges = arrayOranges.reduce((acc, currentValue) => acc + parseFloat(currentValue.pricePerKilo.replace(/,/gi, '.').slice(1)) * currentValue.weight, 0);
     const arrayPineapples = goodsArray.filter(Fruit => Fruit.item === "pineapple");
-    const costPineapples = arrayPineapples.reduce((acc, currentValue) => acc + parseFloat(currentValue['pricePerItem'].replace(/,/gi, '.').slice(1)) * currentValue.quantity, 0);
+    const costPineapples = arrayPineapples.reduce((acc, currentValue) => acc + parseFloat(currentValue.pricePerItem.replace(/,/gi, '.').slice(1)) * currentValue.quantity, 0);
     console.log(`Apples - ${Math.round(costApples, -1)}, Pineapples - ${Math.round(costPineapples, -1)}, Watermelons - ${Math.round(costWatermelons, -1)}, Oranges - ${Math.round(costOranges, -1)}`);
     //Print the result of the execution of this function
     };
