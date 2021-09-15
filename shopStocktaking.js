@@ -42,7 +42,7 @@ const shopStocktaking = (goodsArray) => {
     const arrayPineapples = goodsArray.filter(Fruit => Fruit.item === "pineapple");
     const costPineapples = arrayPineapples.reduce((acc, currentValue) => acc + parseFloat(currentValue.pricePerItem.replace(/,/gi, '.').slice(1)) * currentValue.quantity, 0);
     console.log(`Apples - ${Math.round(costApples, -1)}, Pineapples - ${Math.round(costPineapples, -1)}, Watermelons - ${Math.round(costWatermelons, -1)}, Oranges - ${Math.round(costOranges, -1)}`);
-    //Print the result of the execution of this function
+    
     };
     
     const goodsArray = 
@@ -61,5 +61,7 @@ const shopStocktaking = (goodsArray) => {
       {"item":"apple","type":"Jazz","weight":4,"pricePerKilo":"$5"},
     ];
     
-    shopStocktaking(goodsArray);
+  const callShopStoaking = shopStocktaking(goodsArray);
+  //Print the result of the execution of this function
+  console.log(callShopStoaking);
     
